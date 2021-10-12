@@ -7,3 +7,6 @@ I created this because I had to migrate an existing episerver site to another CM
 Also, since I didn´t have access to the codebase I couldn't create a scheduled job.
 
 So the best approach was to create this standalone console application which uses EPiServerDB directly
+
+# Additional Info
+If you are going to do something similar, this project maybe at least could provide you with some gotchas (example: Engine Initialization & Loading Required Assemblies, BlobProvider)
