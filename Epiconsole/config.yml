@@ -1,9 +1,4 @@
 ---
-export:
-  ignoreContentTypes: {}
-  includeLinkedFiles: true
-  includeReferencedContentTypes: false
-  exportPropertySettings: false
 blob:
     defaultProvider: DefaultProvider
     blobProviders:

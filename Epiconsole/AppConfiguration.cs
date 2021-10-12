@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommandLine;
+using Epiconsole.InitializableModules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +8,33 @@ using System.Threading.Tasks;
 
 namespace Epiconsole
 {
-    public class AppConfiguration
+
+    public class GlobalConfiguration
     {
         public BlobProviderConfig Blob { get; set; }
+
+        [Option(
+            "connection-string",
+            HelpText = "Override EPiServerDB connection string. If not set it is loaded from config.yml")]
         public string ConnectionString { get; set; }
-        public ExportOptions Export { get; set; }
     }
 
+    [Verb(
+        "export",
+        isDefault: true,
+        HelpText = "Exports content from EPiServer CMS")]
     public class ExportOptions
     {
-        public bool? IncludeLinkedFiles { get; set; }
-        public List<string> IgnoreContentTypes {  get; set; }
+        [Option("include-files", HelpText = "If true, referenced files on a page will also be exported", Default = true)]
+        public bool IncludeLinkedFiles { get; set; }
+        
+        [Option("include-implicit-content-dependencies", HelpText = "If true, referenced content will exported", Default = true)]
+        public bool IncludeImplicitContentDependencies { get; set; }
+
+        [Option("include-referenced-contenttypes", HelpText = "If true, referenced files on a page will also be exported")]
         public bool IncludeReferencedContentTypes { get; internal set; }
+        
+        [Option("export-property-settings")]
         public bool ExportPropertySettings { get; internal set; }
     }
 
