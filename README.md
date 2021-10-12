@@ -10,3 +10,9 @@ So the best approach was to create this standalone console application which use
 
 ## Additional Info
 If you are going to do something similar, this project maybe at least could provide you with some gotchas (example: Engine Initialization & Loading Required Assemblies, BlobProvider)
+
+
+## TODO:
+- Implement https://github.com/commandlineparser/commandline
+- Move out export configuration or make it overridable by CLI parameters 
+- Refactor export as a Verb
