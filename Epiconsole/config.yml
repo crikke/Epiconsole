@@ -1,0 +1,15 @@
+---
+export:
+  ignoreContentTypes: {}
+  includeLinkedFiles: true
+  includeReferencedContentTypes: false
+  exportPropertySettings: false
+blob:
+    defaultProvider: DefaultProvider
+    blobProviders:
+    - name: DefaultProvider
+      providerType: FileBlobProvider
+      path: C:\Users\stoffe\source\repos\AlloyConsole\AlloyConsole\App_Data\blobs
+connectionString: Data Source=.\SQLEXPRESS;Initial Catalog=EPiServerDB_9a5f60e7;Connection Timeout=60;Integrated Security=True;MultipleActiveResultSets=True
+
+    
