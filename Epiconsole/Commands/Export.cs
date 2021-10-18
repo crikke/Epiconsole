@@ -32,7 +32,6 @@ namespace Epiconsole.Commands
         {
             var startPage = _contentLoader.Get<IContent>(SiteDefinition.Current.StartPage);
             ExportContentNode(Directory.GetCurrentDirectory(), startPage.ContentLink, options);
-            _log.Critical("Foo");
 
         }
 
@@ -47,7 +46,7 @@ namespace Epiconsole.Commands
             };
 
             var c = _contentLoader.Get<IContent>(contentLink);
-            _log.Critical($"Exporting {c.ContentLink} - {c.Name}");
+            _log.Trace($"Exporting {c.ContentLink} - {c.Name}");
 
             // Export Node 
             if (c == null)
