@@ -18,6 +18,8 @@ namespace Epiconsole.InitializableModules
         public void ConfigureContainer(ServiceConfigurationContext context)
         {
             context.Services.AddTransient<Export>();
+            context.Services.AddTransient<ExportStructureJson>();
+
         }
 
         public void Initialize(InitializationEngine context)
