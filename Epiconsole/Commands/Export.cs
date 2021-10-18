@@ -1,4 +1,5 @@
-﻿using EPiServer;
+﻿using CommandLine;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.Core.Transfer;
 using EPiServer.Enterprise;
@@ -15,6 +16,25 @@ using System.Threading.Tasks;
 
 namespace Epiconsole.Commands
 {
+    [Verb(
+    "export",
+    isDefault: true,
+    HelpText = "Exports content from EPiServer CMS")]
+    public class ExportOptions
+    {
+        [Option("include-files", HelpText = "If true, referenced files on a page will also be exported", Default = true)]
+        public bool IncludeLinkedFiles { get; set; }
+
+        [Option("include-implicit-content-dependencies", HelpText = "If true, referenced content will exported", Default = true)]
+        public bool IncludeImplicitContentDependencies { get; set; }
+
+        [Option("include-referenced-contenttypes", HelpText = "If true, referenced files on a page will also be exported")]
+        public bool IncludeReferencedContentTypes { get; internal set; }
+
+        [Option("export-property-settings")]
+        public bool ExportPropertySettings { get; internal set; }
+    }
+
     public class Export
     {
         private readonly ILogger _log;

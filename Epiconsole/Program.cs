@@ -52,11 +52,11 @@ namespace Epiconsole
 
 
            
-            parser.ParseArguments<ExportOptions>(args)
-                .WithParsed(o =>
-                {
-                    engine.Locate.Advanced.GetInstance<Export>().Execute(o);
-                });
+            parser.ParseArguments<Commands.ExportOptions, Commands.ExportStructureJsonOptions>(args)
+                .MapResult(
+                (Commands.ExportOptions o) => { engine.Locate.Advanced.GetInstance<Export>().Execute(o); return 0; },
+                (ExportStructureJsonOptions o) => { engine.Locate.Advanced.GetInstance<ExportStructureJson>().Execute(o); return 0; },
+                err => 1);
             engine.Uninitialize();
 
 #if DEBUG

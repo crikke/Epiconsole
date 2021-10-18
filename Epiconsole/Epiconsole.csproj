@@ -201,6 +201,7 @@
   <ItemGroup>
     <Compile Include="AppConfiguration.cs" />
     <Compile Include="Commands\Export.cs" />
+    <Compile Include="Commands\ExportStructureJson.cs" />
     <Compile Include="InitializableModules\VerbInitialization.cs" />
     <Compile Include="InitializableModules\BlobProviderInitialization.cs" />
     <Compile Include="InitializableModules\DataAccessInitialization.cs" />
